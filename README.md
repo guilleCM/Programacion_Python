@@ -1,3 +1,2 @@
 ## Programacion
-Repositorio dedicado a ejercicios de programacion.  
-Voy a utilizarlo para practicas en __Python__ y __JavaScript__
+Repositorio utilizado para mis primeros ejercicios de Python.
