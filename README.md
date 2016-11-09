@@ -1,2 +1,2 @@
 ## Programacion
-Repositorio utilizado para prgamozar mis primeros ejercicios en Python.
+Repositorio utilizado para organizar mis primeros ejercicios en Python.
