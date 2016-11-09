@@ -1,3 +1,10 @@
+#Autor: guilleCM
+
+#coding=utf-8
+
+#Enunciado:
+#funciones para comparar que numeros son mas grandes
+
 def bigger(n1,n2):
     if n1 > n2:
         return n1
