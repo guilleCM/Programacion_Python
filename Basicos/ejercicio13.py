@@ -17,7 +17,7 @@ if valor<=20:
 elif valor>20 and valor<=100:
 	print (valor*0.95)
 else:
-	print (valor*0.10)
+	print (valor*0.90)
 
 
 #CASOS TEST#
