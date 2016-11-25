@@ -19,9 +19,9 @@ def is_palindrome(s):
  
  
 #CASOS TEST# 
-#print is_palindrome('')
+#print (is_palindrome(''))
 #>>> True
-#print is_palindrome('abab')
+#print (is_palindrome('abab'))
 #>>> False
-#print is_palindrome('abba')
+#print (is_palindrome('abba'))
 #>>> True
