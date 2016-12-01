@@ -6,3 +6,4 @@ He intentado en la medida de lo posible aplicar la metodología **TDD** (*Test-D
 - Consola para entender mejor la ejecución del código: [Python tutor](http://pythontutor.com/visualize.html#mode=edit)  
 - Material de clase (1º DAW DUAL)
 - Libros: *Code Complete*, *Learning Python 5th edition*
+- GitHub dfleta: [@dfleta](https://github.com/dfleta/Python_ejercicios)
