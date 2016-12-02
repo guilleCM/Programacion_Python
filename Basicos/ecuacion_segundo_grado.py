@@ -7,7 +7,7 @@
 def resolverEquacionSegundoGrado (a, b, c):
     import math
 
-interiorRaiz = b**2 -(4*a*c)
+    interiorRaiz = b**2 -(4*a*c)
     if interiorRaiz >= 0:
         resultadoRaiz = math.sqrt(interiorRaiz)
         x1 = (-b + resultadoRaiz) / 2*a
