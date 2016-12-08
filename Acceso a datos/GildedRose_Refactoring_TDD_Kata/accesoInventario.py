@@ -13,8 +13,8 @@
 #-------- day 1 --------
 #
 #PSEUDOCODIGO:
-'''Cogo una linea del fichero, utilizo las comas como separador 
-para guiarme y divido la linea en 3 elementos => los meto en
+'''Cojo una linea del fichero, utilizo las comas como separador 
+para dividir la linea en 3 partes => los meto en
 una lista mediante un append... !!!OJO!!! quitar caracter 
 oculto \n en las lineas del fichero que corresponde a los saltos
 de linea'''
@@ -22,20 +22,20 @@ archivo = open('stdout.gr', 'r')
 
 def creaMatrizDelInventario(archivoTexto):
 	matrizInventario=[]
-	listaDias=[]
 	contadorDias=0
 	for linea in archivoTexto:
-		ignorarLinea=linea.find("name")!= -1 and linea.find("sellIn")!= -1 and linea.find("quality")!= -1
+		ignorarLinea=linea.find("name" and "sellIn" and "quality")!=-1
 		if linea.find("--------") == 0:
-			listaDias.append([])
+			matrizInventario.append([])
 			contadorDias+=1
 		elif ignorarLinea==True or linea=="\n":
 			pass
 		else:
 			linea = linea.rstrip()
 			lineaPartida = linea.split(',')
-			listaDias[contadorDias-1].append(lineaPartida)
-	print (listaDias)
+			print lineaPartida
+			matrizInventario[contadorDias-1].append(lineaPartida)
+	return matrizInventario
 
 creaMatrizDelInventario(archivo)
 
