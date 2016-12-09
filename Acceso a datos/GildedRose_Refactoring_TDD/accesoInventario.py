@@ -35,7 +35,7 @@ def creaMatrizDelInventario(archivoTexto):
 			lineaPartida = linea.split(',') #OJO! todo pasa a ser string
 			longitudTotal=3 
 			if len(lineaPartida)>longitudTotal:
-				lineaPartida[0:longitudTotal-1]=[','.join(lineaPartida[0:longitudTotal-1])]
+				lineaPartida[0:-2]=[','.join(lineaPartida[0:-2])]
 			matrizInventario[contadorDias-1].append(lineaPartida)
 	if len(matrizInventario)==contadorDias:
 		return matrizInventario

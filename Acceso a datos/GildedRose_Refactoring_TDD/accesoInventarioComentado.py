@@ -48,7 +48,7 @@ def creaMatrizDelInventario(archivoTexto):
 			if len(lineaPartida)>longitudTotal:
 			######Si supera la longitud establecida, como en el caso de ['Sulfuras,'] ['Hand of Ragnaros'],
 			######nos interesa juntar el nombre del item en la posicion 0 de la lista
-				lineaPartida[0:longitudTotal-1]=[','.join(lineaPartida[0:longitudTotal-1])]
+				lineaPartida[0:-2]=[','.join(lineaPartida[0:-2])]
 			matrizInventario[contadorDias-1].append(lineaPartida)
 	if len(matrizInventario)==contadorDias:
 		print("POSTCONDICION OK")
