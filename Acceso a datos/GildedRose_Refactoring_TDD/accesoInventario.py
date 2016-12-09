@@ -27,15 +27,18 @@ def creaMatrizDelInventario(archivoTexto):
 		ignorarLinea=linea.find("name" and "sellIn" and "quality")!=-1
 		if linea.find("--------") == 0:
 			matrizInventario.append([])
-			contadorDias+=1
+			contadorDias+=1 
 		elif ignorarLinea==True or linea=="\n":
 			pass
-		else:
-			linea = linea.rstrip()
-			lineaPartida = linea.split(',')
-			print lineaPartida
+		else: 
+			linea = linea.rstrip() 
+			lineaPartida = linea.split(',') #OJO! todo pasa a ser string
+			longitudTotal=3 
+			if len(lineaPartida)>longitudTotal:
+				lineaPartida[0:longitudTotal-1]=[','.join(lineaPartida[0:longitudTotal-1])]
 			matrizInventario[contadorDias-1].append(lineaPartida)
-	return matrizInventario
+	if len(matrizInventario)==contadorDias:
+		return matrizInventario
 
 creaMatrizDelInventario(archivo)
 
