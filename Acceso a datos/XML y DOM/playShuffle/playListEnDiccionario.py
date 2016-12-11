@@ -3,19 +3,23 @@ import xml.etree.cElementTree as ET
 #importar el archivo XML y guardarlo en variables globales
 tree = ET.parse('playListVLC_xspf.xml')
 root = tree.getroot()
+#diccionario que contiene el espacio de nombres
+xmlns = {"xmlns": "http://xspf.org/ns/0/",
+         "xmlns:vlc": "http://www.videolan.org/vlc/playlist/ns/0/"}
 
-menu = {}
-nombrePlato = "Nombre plato: "
-precioPlato = "Precio: "
-for child in root:
-	nombreYprecio = {}
-	nombreYprecio[child.find('name').text]=child.find("price").text
-	menu.update(nombreYprecio)
-	print (nombrePlato + child.find('name').text + ", " + precioPlato + child.find("price").text)
+trackList=root.find('xmlns:trackList', xmlns)
 
-##CASOS TEST##
-if __name__ == "__main__":
-####POSTCONDICION####
-	if len(menu) == 5:
-		print ("TEST OK!!!")
-	
+libreriaPlayList={}
+for track in trackList:
+	detallesCancion={
+	track.find('xmlns:title', xmlns).text: {
+		"location":track.find('xmlns:location', xmlns).text,
+		"creator":track.find('xmlns:creator', xmlns).text,
+		"album":track.find('xmlns:album', xmlns).text,
+		"trackNum":track.find('xmlns:trackNum', xmlns).text,
+		}
+	}
+
+	libreriaPlayList.update(detallesCancion)
+
+print (libreriaPlayList)
