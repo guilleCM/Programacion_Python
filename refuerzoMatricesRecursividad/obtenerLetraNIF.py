@@ -32,16 +32,18 @@ diccionarioAsignacion={	 0:"T",
 
 listaAsignacion=["T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"]
 
-def accesoDatos(tablaAsignacion):
-	if type(tablaAsignacion) is list:
-		return list
-	elif type(tablaAsignacion) is dict:
-		return list(tablaAsignacion.values())
+def accesoDatos(lista):
+	datos=diccionarioAsignacion
+	if type(datos) is list:
+		return lista.extend(datos)
+	elif type(datos) is dict:
+		return lista.extend(list(datos.values()))
 
 def asignarLetraDNI(numero):
 	assert isinstance(numero, int), "no estas utilizando un numero entero"
 	posicionLetra=numero%23
-	listaAsignaciones=accesoDatos(diccionarioAsignacion)
+	listaAsignaciones=[]
+	accesoDatos(listaAsignaciones)
 	letraAsignada=listaAsignaciones[posicionLetra]
 	return letraAsignada
 
