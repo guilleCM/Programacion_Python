@@ -49,8 +49,6 @@ if __name__=='__main__':
 	tom=Manager('Tom Jones', 'mgr', 50000)
 	tom.giveRaise(.10)
 	print(tom.lastName())
-	print(tom)
-	tom.someThingElse()
 	print (tom)
 	print("---Los tres---")
 	for obj in (bob, sue, tom):

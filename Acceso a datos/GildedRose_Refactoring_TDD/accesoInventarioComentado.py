@@ -50,6 +50,7 @@ def creaMatrizDelInventario(archivoTexto):
 			######nos interesa juntar el nombre del item en la posicion 0 de la lista
 				lineaPartida[0:-2]=[','.join(lineaPartida[0:-2])]
 			matrizInventario[contadorDias-1].append(lineaPartida)
+			
 	if len(matrizInventario)==contadorDias:
 		print("POSTCONDICION OK")
 		return matrizInventario

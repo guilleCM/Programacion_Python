@@ -40,7 +40,7 @@ def creaMatrizDelInventario(archivoTexto):
 	if len(matrizInventario)==contadorDias:
 		return matrizInventario
 
-creaMatrizDelInventario(archivo)
+print (creaMatrizDelInventario(archivo))
 
 ##CASOS TEST
 #El resultado debe ser una lista con las siguientes caracteristicas
