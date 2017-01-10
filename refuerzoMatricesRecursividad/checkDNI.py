@@ -14,7 +14,7 @@ def dniCheck(string):
 	numerosDNI=dniIntroducido[0:8]
 
 	if len(dniIntroducido) != 9:
-		print ("Error de formato. Debe contener 9 caracteres (8 numero + 1 letra)")
+		print ("Error de formato. El DNI debe contener exactamente 9 caracteres (8 numero + 1 letra)")
 	elif numerosDNI.isdigit() == False:
 		print ("Introduce 8 números")
 	elif letraDNI.isalpha() == False:

@@ -1,0 +1,23 @@
+-------- clientes --------
+nombre, apellidos, direccion, telefono, nif, saldo
+"Marian", "Rodenas Pocovi", "C/ Jacinto Benavente", 622224680, "43461531H", 5000
+"Guillermo", "Cirer Martorell", "C/ Tenor Bou Roig", 717114964, "43223381X", 6000
+"Obi Wan", "Kenobi", "Planeta Stewjon", 123456789, "42123455X", 50
+"Anakin", "Skywalker", "Planeta Tatooine", 987654321, "66778877Y", 0
+"Darth", "Vader", "Estrella de la muerte", 666666666, "98772211V", 10000
+
+-------- clientes fin de mes --------
+nombre, apellidos, direccion, telefono, nif, saldo
+"Marian", "Rodenas Pocovi", "C/ Jacinto Benavente", 622224680, "43461531H", 500
+"Guillermo", "Cirer Martorell", "C/ Tenor Bou Roig", 717114964, "43223381X", 0
+"Obi Wan", "Kenobi", "Planeta Stewjon", 123456789, "42123455X", 50
+"Anakin", "Skywalker", "Planeta Tatooine", 987654321, "66778877Y", 10
+"Darth", "Vader", "Estrella de la muerte", 666666666, "98772211V", -10000
+
+-------- clientes principio mes --------
+nombre, apellidos, direccion, telefono, nif, saldo
+"Marian", "Rodenas Pocovi", "C/ Jacinto Benavente", 622224680, "43461531H", 5500
+"Guillermo", "Cirer Martorell", "C/ Tenor Bou Roig", 717114964, "43223381X", 5000
+"Obi Wan", "Kenobi", "Planeta Stewjon", 123456789, "42123455X", 5050
+"Anakin", "Skywalker", "Planeta Tatooine", 987654321, "66778877Y", 5000
+"Darth", "Vader", "Estrella de la muerte", 666666666, "98772211V", 15000

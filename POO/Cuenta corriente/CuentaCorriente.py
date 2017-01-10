@@ -19,26 +19,7 @@
 ####ingresarDinero(): añade al saldo una cantidad de dinero.
 ####consultarCuenta(): visualizará los datos de la cuenta.
 ####saldoNegativo(): devolverá un valor lógico indicando si la cuenta está o no en números rojos.
-
-class OperacionesCuentaCorriente:
-	def retirarDinero(self, cantidad):
-		if cantidad>self.saldo:
-			print ("No dispone de tal cantidad para retirar")
-			print ("Su saldo disponible es de", self.saldo)
-		else:
-			self.saldo=self.saldo-cantidad
-			print ("Ha retirado %s€, su saldo disponible es de %s€" %(cantidad, self.saldo))
-	def ingresarDinero(self, cantidad):
-		self.saldo+=cantidad
-	def consultarCuenta(self):
-		pass
-	def saldoNegativo(self):
-		if self.saldo<0:
-			return True
-		elif self.saldo==0:
-			return ("Está a 0")
-		else:
-			return False
+from creaMatrizCasosTest import *
 
 class DatosCuentaCorriente:
 	def __init__(self,nombre,apellidos,direccion,telefono,nif,saldo):
@@ -48,25 +29,70 @@ class DatosCuentaCorriente:
 		self.telefono=telefono
 		self.nif=nif
 		self.saldo=saldo
-	def __repr__(self):
+
+	def __str__(self):
 		return '[Propietario: %s %s, Direccion: %s, Telefono: %s, NIF: %s, Saldo Disponible: %s]' %(self.nombre, self.apellidos, self.direccion, self.telefono, self.nif, self.saldo)
 
-class CuentaCorriente(OperacionesCuentaCorriente, DatosCuentaCorriente):
+class InterfazCuentaCorriente():
+	def setNombre(self, nombre):
+		self.nombre=nombre
+	def setApellidos(self, apellidos):
+		self.apellidos=apellidos
+	def setDireccion(self, direccion):
+		self.direccion=direccion
+	def setTelefono(self, telefono):
+		self.telefono=telefono
+	def setNif(self, nif):
+		self.nif=nif
+	def setSaldo(self, saldo):
+		self.saldo=saldo
+
+	def getNombre(self):
+		return self.nombre
+	def getApellidos(self):
+		return self.apellidos
+	def getDireccion(self):
+		return self.direccion
+	def getTelefono(self):
+		return self.telefono
+	def getNif(self):
+		return self.nif
+	def getSaldo(self):
+		return self.saldo
+
+
+	def retirarDinero(self, cantidad):
+		if cantidad>self.saldo:
+			print ("No dispone de tal cantidad para retirar")
+			print ("Su saldo disponible es de", self.saldo)
+		else:
+			self.saldo=self.saldo-cantidad
+			print ("Ha retirado %s€, su saldo disponible es de %s€" %(cantidad, self.saldo))
+
+	def ingresarDinero(self, cantidad):
+		self.saldo+=cantidad
+
+	def saldoNegativo(self):
+		if self.saldo<0:
+			return True
+		else:
+			return False
+
+	def consultarCuenta(self):
+		print(self)
+
+class CuentaCorriente(InterfazCuentaCorriente, DatosCuentaCorriente):
+	def __init__(self, nombre, apellidos, direccion, telefono, nif, saldo):
+		DatosCuentaCorriente.__init__(self, nombre, apellidos, direccion, telefono, nif, saldo)
+
+class Cliente(CuentaCorriente):
 	def __init__(self, nombre, apellidos, direccion, telefono, nif, saldo):
 		DatosCuentaCorriente.__init__(self, nombre, apellidos, direccion, telefono, nif, saldo)
 
 
 
-
-
 if __name__=='__main__':
-	marian = CuentaCorriente("Marian", "Rodenas Pocovi", "C/ Jacinto Benavente", "622224680", "43461531H", 5000)
-	guilleCM = CuentaCorriente("Guillermo", "Cirer Martorell", "C/ Tenor Bou Roig", "717114964", "43223381X", 6000)
-	print(marian)
-	print(guilleCM)
-
-	for obj in (marian, guilleCM):
-		obj.retirarDinero(5000)
-		obj.ingresarDinero(5000)
-		obj.saldoNegativo()
-		print (obj)
+	guilleCM = Cliente("Guillermo", "Cirer Martorell", "C/ Tenor Bou Roig", 717114964, "43223381X", 60)
+	guilleCM.ingresarDinero(40) #saldo pasa a ser 100
+	guilleCM.setNombre("Pedro") #nombre pasa a ser Pedro
+	guilleCM.consultarCuenta() #comprueba que lo anterior se ha cumplido
