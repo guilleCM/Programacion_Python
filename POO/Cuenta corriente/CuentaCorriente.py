@@ -21,62 +21,76 @@
 ####saldoNegativo(): devolverá un valor lógico indicando si la cuenta está o no en números rojos.
 
 class CuentaCorriente:
-	def __init__(self,nombre,apellidos,direccion,telefono,nif,saldo):
-		self.__nombre=nombre
-		self.__apellidos=apellidos
-		self.__direccion=direccion
-		self.__telefono=telefono
-		self.__nif=nif
-		self.__saldo=saldo
-	#SETTERS
-	def setNombre(self, nombre):
-		self.__nombre=nombre
-	def setApellidos(self, apellidos):
-		self.__apellidos=apellidos
-	def setDireccion(self, direccion):
-		self.__direccion=direccion
-	def setTelefono(self, telefono):
-		self.__telefono=telefono
-	def setNif(self, nif):
-		self.__nif=nif
-	def setSaldo(self, saldo):
-		self.__saldo=saldo
-	#GETTERS
-	def getNombre(self):
-		return self.__nombre
-	def getApellidos(self):
-		return self.__apellidos
-	def getDireccion(self):
-		return self.__direccion
-	def getTelefono(self):
-		return self.__telefono
-	def getNif(self):
-		return self.__nif
-	def getSaldo(self):
-		return self.__saldo
 
-	def __str__(self):
-		return '[Propietario: %s %s, Direccion: %s, Telefono: %s, NIF: %s, Saldo Disponible: %s]' %(self.__nombre, self.__apellidos, self.__direccion, self.__telefono, self.__nif, self.__saldo)
+    def __init__(self, nombre, apellidos, direccion, telefono, nif, saldo):
+        self.__nombre = nombre
+        self.__apellidos = apellidos
+        self.__direccion = direccion
+        self.__telefono = telefono
+        self.__nif = nif
+        self.__saldo = saldo
+    # SETTERS
 
-	def saldoNegativo(self):
-		if self.__saldo<0:
-			return True
-		else:
-			return False
+    def setNombre(self, nombre):
+        self.__nombre = nombre
 
-	def consultarCuenta(self):
-		print(self)
+    def setApellidos(self, apellidos):
+        self.__apellidos = apellidos
 
-	def ingresarDinero(self, cantidad):
-		self.__saldo+=cantidad
+    def setDireccion(self, direccion):
+        self.__direccion = direccion
 
-	def retirarDinero(self, cantidad):
-		if cantidad>self.__saldo:
-			print ("No dispone de tal cantidad para retirar")
-			print ("Su saldo disponible es de", self.saldo)
-		else:
-			self.__saldo=self.__saldo-cantidad
-			print ("Ha retirado %s€, su saldo disponible es de %s€" %(cantidad, self.__saldo))
+    def setTelefono(self, telefono):
+        self.__telefono = telefono
+
+    def setNif(self, nif):
+        self.__nif = nif
+
+    def setSaldo(self, saldo):
+        self.__saldo = saldo
+    # GETTERS
+
+    def getNombre(self):
+        return self.__nombre
+
+    def getApellidos(self):
+        return self.__apellidos
+
+    def getDireccion(self):
+        return self.__direccion
+
+    def getTelefono(self):
+        return self.__telefono
+
+    def getNif(self):
+        return self.__nif
+
+    def getSaldo(self):
+        return self.__saldo
+
+    def __str__(self):
+        return '[Propietario: %s %s, Direccion: %s, Telefono: %s, NIF: %s, Saldo Disponible: %s]' % (self.__nombre, self.__apellidos, self.__direccion, self.__telefono, self.__nif, self.__saldo)
+
+    def saldoNegativo(self):
+        if self.__saldo < 0:
+            return True
+        else:
+            return False
+
+    def consultarCuenta(self):
+        print(self)
+
+    def ingresarDinero(self, cantidad):
+        self.__saldo += cantidad
+
+    def retirarDinero(self, cantidad):
+        if cantidad > self.__saldo:
+            print("No dispone de tal cantidad para retirar")
+            print("Su saldo disponible es de", self.saldo)
+        else:
+            self.__saldo = self.__saldo-cantidad
+            print("Ha retirado %s€, su saldo disponible es de %s€" %
+                  (cantidad, self.__saldo))
 
 
 
