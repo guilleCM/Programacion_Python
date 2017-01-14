@@ -27,25 +27,52 @@ Métodos de la clase (públicos):
 	imprimirHora() que muestra en consola la hora en formato string de la forma "horas:minutos:segundos".
 	Métodos set() y get() para todas las propiedades [Abstracción y encapsulamiento].
 '''
-import sys
 
 class Hora:
 
-	def __init__(self, hora=0, minutos=0, segundos=0):
-		checkConstructor=Hora.setHora(hora, minutos, segundos)
-		self.__hora=checkConstructor[0]
-		self.__minutos=checkConstructor[1]
-		self.__segundos=checkConstructor[2]
+    def __init__(self, hora=0, minutos=0, segundos=0):
+    	'''
+    	Inicializo un constructor defensivo, que coge los argumentos
+    	y los pasa por la funcion setHora. La funcion devuelve 3 valores
+    	válidos o neutros para garantizar que las propiedades de la clase
+    	tomarán los valores esperados.
+    	'''
+        constructorDefensivo = Hora.setHora(hora, minutos, segundos)
+        self.__hora = constructorDefensivo[0]
+        self.__minutos = constructorDefensivo[1]
+        self.__segundos = constructorDefensivo[2]
 
-	def __str__(self):
-		return str(self.__hora)+":"+ str(self.__minutos) +":"+str(self.__segundos)
+    def __str__(self):
+        return str(self.__hora)+":" + str(self.__minutos) + ":"+str(self.__segundos)
 
-	@staticmethod
-	def setHora(hora=0, minutos=0, segundos=0, *ignorarRestoArgumentos):
-		if hora not in range(0,24,1):
-			hora=0
-		if minutos not in range(0,60,1):
-			minutos=0
-		if segundos not in range(0,60,1):
-			segundos=0
-		return hora, minutos, segundos
+    @staticmethod
+    def setHora(hora=0, minutos=0, segundos=0, *ignorarRestoArgumentos):
+    	'''
+    	Los tres primeros argumentos son los que nos interesan.
+    		- hora tiene que estar entre 0 y 23
+    		- minutos y segundos tienen que estar entre 0 y 59
+    	Si se pasan valores que no estan entre esos rangos, o de otro 
+    	tipo (como strings) los formateará al valor neutro 0 [defensivamente]
+    	'''
+        if hora not in range(0, 24, 1):
+            hora = 0
+        if minutos not in range(0, 60, 1):
+            minutos = 0
+        if segundos not in range(0, 60, 1):
+            segundos = 0
+        return hora, minutos, segundos
+
+    def getHora(self):
+        propiedades = [str(self.__hora), str(self.__minutos), str(self.__segundos)]
+        resultado = []
+        for propiedad in propiedades:
+            if len(propiedad) != 1:
+                resultado.append(propiedad)
+            else:
+                resultado.append("0"+propiedad)
+        return resultado
+
+    def imprimirHora(self):
+        propiedadesFormateadas = ':'.join(Hora.getHora(self))
+        print(propiedadesFormateadas)
+        return propiedadesFormateadas

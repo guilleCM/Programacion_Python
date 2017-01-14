@@ -17,6 +17,13 @@ def test_setHora():
 	assert (0, 39, 0) == Hora.setHora(12.25, 39)
 	assert (22, 20, 0) == Hora.setHora(22, 20, 0, 1, 3, "Toma argumentos")
 
-def test_inyector():
+@pytest.fixture
+def inyector():
 	objetoConstruido = Hora("stringTest",3)
 	return objetoConstruido
+
+def test_getHora(inyector):
+	assert ["00", "03", "00"] == inyector.getHora()
+
+def test_imprimirHora(inyector):
+	assert "00:03:00" == inyector.imprimirHora()
