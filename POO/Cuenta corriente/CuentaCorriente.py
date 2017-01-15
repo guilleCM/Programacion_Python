@@ -99,7 +99,7 @@ class CuentaCorriente:
 if __name__=='__main__':
 	guilleCM = CuentaCorriente("Guillermo", "Cirer Martorell", "C/ Tenor Bou Roig", 717114964, "43223381X", 60)
 	guilleCM.ingresarDinero(40) #saldo pasa a ser 100
-	guilleCM.retirarDinero(100)
+	guilleCM.retirarDinero(100) #saldo pasa a ser 0
 	guilleCM.setNombre("Pedro") #nombre pasa a ser Pedro
 	guilleCM.consultarCuenta() #comprueba que lo anterior se ha cumplido
 	cuentaGuille = CuentaCorriente("Guillermo", "Cirer Martorell", "C/ Tenor Bou Roig", 717114964, "43223381X", 60)
